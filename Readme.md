@@ -8,6 +8,10 @@ I found that when you switch from `auto` to `4G only` and then back to `auto`, t
 ## How to use
 1. Clone this repo
 2. Add config to `.env`
+3. Install requirements
+```
+pip install -r requirements.txt
+```
 3. Run `python3 main.py` to see if it works
 4. Add to crontab to run every 5 minutes
 ```
