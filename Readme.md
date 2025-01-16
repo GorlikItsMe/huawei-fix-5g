@@ -12,8 +12,8 @@ I found that when you switch from `auto` to `4G only` and then back to `auto`, t
 ```
 pip install -r requirements.txt
 ```
-3. Run `python3 main.py` to see if it works
-4. Add to crontab to run every 5 minutes
+4. Run `python3 main.py` to see if it works
+5. Add to crontab to run every 5 minutes
 ```
 */5 * * * * /usr/bin/python3 /path/to/main.py
 ```
