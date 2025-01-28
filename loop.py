@@ -6,16 +6,13 @@ from dotenv import dotenv_values
 from utils import Config, send_discord_notification
 config = dotenv_values(".env")
 
+connection_string = f'http://{Config.username}:{Config.password}@{Config.router_ip}/'
 
 if __name__ == "__main__":
-    connection_string = f'http://{Config.username}:{Config.password}@{Config.router_ip}/'
-
-    try:
+    while True:
         with Connection(connection_string) as connection:
             client = Client(connection)
-
             is4g = client.monitoring.status()["SignalIconNr"] == "0"
-
             print(f"4G: {is4g}")
             if is4g:
                 print("its 4G. Lets try fix that!")
@@ -43,6 +40,5 @@ if __name__ == "__main__":
                 send_discord_notification("Done. Now it should work.")
             else:
                 print("You are already on 5G")
-    except Exception as e:
-        send_discord_notification("Crashed")
-        raise e
+            print("wait 1min...")
+            sleep(60)
