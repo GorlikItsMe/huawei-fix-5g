@@ -39,6 +39,8 @@ if __name__ == "__main__":
                         networkmode=NetworkModeEnum.MODE_AUTO
                     )
                     send_discord_notification("Done. Now it should work.")
+                    print("wait 15min before checking again after that \"fix\"")
+                    sleep(60*15)
                 else:
                     print("You are already on 5G")
                 print("wait 1min...")

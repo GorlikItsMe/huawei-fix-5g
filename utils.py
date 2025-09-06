@@ -17,3 +17,18 @@ def send_discord_notification(message):
             requests.post(Config.discord_webhook, json=payload)
         except Exception as e:
             print(f"Failed to send Discord notification: {e}")
+
+def is_number(s: str) -> bool:
+    """
+    Check if the given string represents a number (integer or float).
+    
+    :param s: Input string
+    :return: True if the string is a number, False otherwise
+    """
+    if s is None:
+        return False
+    try:
+        float(s)  # Try converting to float
+        return True
+    except ValueError:
+        return False
