@@ -40,7 +40,13 @@ if __name__ == "__main__":
                     networkband=data['NetworkBand'],
                     networkmode=NetworkModeEnum.MODE_AUTO
                 )
-                send_discord_notification("Done. Now it should work.")
+                print("Now it should work. I will check it...")
+                sleep(10)
+                is4g = client.monitoring.status()["SignalIconNr"] == "0"
+                if is4g:
+                    send_discord_notification("Done but it didnt help. You are still on 4G.")
+                else:
+                    send_discord_notification("Done. Now it should work.")
             else:
                 print("You are already on 5G")
     except Exception as e:
